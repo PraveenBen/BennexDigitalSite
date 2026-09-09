@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@theme {
+  --color-morning-sand: #fffbeb;
+  --color-roasted-earth: #431407;
+  --color-solar-flare: #ea580c;
+  --color-radiant-amber: #f59e0b;
+  --color-clear-sky: #0ea5e9;
+
+  --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+
+  --text-hero: clamp(2.25rem, 1.4rem + 3.5vw, 4rem);
+  --text-hero--line-height: 1.05;
+  --text-hero--font-weight: 700;
+
+  --text-section-title: clamp(2rem, 1.5rem + 2vw, 3rem);
+  --text-section-title--line-height: 1.15;
+  --text-section-title--font-weight: 700;
+
+  --text-lede: clamp(1.0625rem, 1rem + 0.4vw, 1.25rem);
+  --text-lede--line-height: 1.6;
+}
+
+body {
+  background-color: var(--color-morning-sand);
+  color: var(--color-roasted-earth);
+}
+
+::selection {
+  background-color: var(--color-radiant-amber);
+  color: var(--color-morning-sand);
+}
+
+/* Visible keyboard focus ring in clear-sky, applied consistently to every interactive element. */
+:focus-visible {
+  outline: 2px solid var(--color-clear-sky);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}

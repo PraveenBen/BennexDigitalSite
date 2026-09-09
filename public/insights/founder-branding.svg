@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="">
+  <defs>
+    <linearGradient id="g2" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0EA5E9"/>
+      <stop offset="100%" stop-color="#F59E0B"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="#FFFBEB"/>
+  <circle cx="180" cy="140" r="200" fill="url(#g2)" fill-opacity="0.16"/>
+  <circle cx="660" cy="340" r="170" fill="#EA580C" fill-opacity="0.12"/>
+  <rect x="100" y="240" width="320" height="16" rx="8" fill="#431407" fill-opacity="0.15"/>
+  <rect x="100" y="276" width="240" height="16" rx="8" fill="#431407" fill-opacity="0.1"/>
+</svg>
