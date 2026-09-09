@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { buildAssetPath } from "@/lib/buildAssetPath";
 import type { InsightArticle } from "@/types";
 
 interface InsightCardProps {
@@ -14,7 +15,7 @@ export function InsightCard({ insightArticle }: InsightCardProps) {
     <article className="overflow-hidden rounded-2xl border border-roasted-earth/10 bg-white/60">
       {/* unoptimized: local placeholder SVG cover art needs no resizing or format conversion. */}
       <Image
-        src={imageSrc}
+        src={buildAssetPath(imageSrc)}
         alt={imageAlt}
         width={800}
         height={450}

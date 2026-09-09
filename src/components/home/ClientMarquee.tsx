@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+import { buildAssetPath } from "@/lib/buildAssetPath";
 import { CLIENT_LOGOS } from "@/lib/constants";
 
 export function ClientMarquee() {
@@ -16,7 +17,7 @@ export function ClientMarquee() {
           {[...CLIENT_LOGOS, ...CLIENT_LOGOS].map((clientLogo, clientLogoIndex) => (
             <Image
               key={`${clientLogo.name}-${clientLogoIndex}`}
-              src={clientLogo.imageSrc}
+              src={buildAssetPath(clientLogo.imageSrc)}
               alt={clientLogo.name}
               width={160}
               height={48}

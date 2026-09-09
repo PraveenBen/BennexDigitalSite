@@ -9,6 +9,7 @@ import {
   SITE_DESCRIPTION,
   SITE_META_TITLE,
   SITE_NAME,
+  SITE_ORIGIN,
   SITE_URL,
 } from "@/lib/constants";
 
@@ -21,7 +22,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
+  metadataBase: new URL(SITE_ORIGIN),
   title: {
     default: `${SITE_NAME} | ${SITE_META_TITLE}`,
     template: `%s | ${SITE_NAME}`,

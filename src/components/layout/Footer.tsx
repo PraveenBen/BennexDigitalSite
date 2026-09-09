@@ -8,17 +8,18 @@ import {
 } from "@/lib/constants";
 
 const COMPANY_LINKS = [
-  { label: "Approach", href: "#approach" },
-  { label: "Work", href: "#proof" },
-  { label: "Insights", href: "#insights" },
-  { label: "Contact", href: "#contact" },
+  { label: "About", href: "/about" },
+  { label: "Approach", href: "/approach" },
+  { label: "Work", href: "/work" },
+  { label: "Insights", href: "/insights" },
+  { label: "Contact", href: "/contact" },
 ] as const;
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer id="about" className="border-t border-roasted-earth/10 bg-white/40">
+    <footer className="border-t border-roasted-earth/10 bg-white/40">
       <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-6">
           <div className="lg:col-span-2">
@@ -36,18 +37,18 @@ export function Footer() {
           </div>
 
           {CAPABILITY_CATEGORIES.map((capabilityCategory) => (
-            <div key={capabilityCategory.anchorId}>
+            <div key={capabilityCategory.slug}>
               <Link
-                href={`#${capabilityCategory.anchorId}`}
+                href={capabilityCategory.route}
                 className="flex min-h-11 items-center font-semibold text-roasted-earth"
               >
                 {capabilityCategory.title}
               </Link>
               <ul className="mt-1 flex flex-col">
                 {capabilityCategory.services.map((subService) => (
-                  <li key={subService.title}>
+                  <li key={subService.anchorId}>
                     <Link
-                      href={subService.href}
+                      href={`${capabilityCategory.route}#${subService.anchorId}`}
                       className="flex min-h-11 items-center text-sm text-roasted-earth/70 transition-colors duration-300 hover:text-solar-flare"
                     >
                       {subService.title}
@@ -63,12 +64,12 @@ export function Footer() {
             <ul className="mt-1 flex flex-col">
               {COMPANY_LINKS.map((companyLink) => (
                 <li key={companyLink.href}>
-                  <a
+                  <Link
                     href={companyLink.href}
                     className="flex min-h-11 items-center text-sm text-roasted-earth/70 transition-colors duration-300 hover:text-solar-flare"
                   >
                     {companyLink.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

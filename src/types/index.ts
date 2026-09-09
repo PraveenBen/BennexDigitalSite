@@ -6,12 +6,14 @@ export interface NavLink {
 }
 
 export interface CapabilitySubService {
+  anchorId: string;
   title: string;
-  href: string;
+  description: string;
 }
 
 export interface CapabilityCategory {
-  anchorId: string;
+  slug: string;
+  route: string;
   title: string;
   description: string;
   icon: LucideIcon;
@@ -44,9 +46,4 @@ export interface ClientLogo {
 export interface FaqEntry {
   question: string;
   answer: string;
-}
-
-export interface FormActionState {
-  isSuccessful: boolean;
-  errorMessage: string | null;
 }

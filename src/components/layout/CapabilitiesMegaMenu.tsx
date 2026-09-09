@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useEffect, useId, useRef, useState } from "react";
 
 import { combineClassNames } from "@/lib/combineClassNames";
-import { CAPABILITY_CATEGORIES } from "@/lib/constants";
+import { CAPABILITIES_ROUTE, CAPABILITY_CATEGORIES } from "@/lib/constants";
 
 const MENU_CLOSE_DELAY_MS = 150;
 
@@ -112,13 +112,13 @@ export function CapabilitiesMegaMenu() {
           >
             <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
               {CAPABILITY_CATEGORIES.map((capabilityCategory) => (
-                <div key={capabilityCategory.anchorId} role="none">
+                <div key={capabilityCategory.slug} role="none">
                   <div className="flex h-10 w-10 items-center justify-center rounded-full bg-radiant-amber/10 text-solar-flare">
                     <capabilityCategory.icon className="h-5 w-5" aria-hidden="true" />
                   </div>
 
                   <Link
-                    href={`#${capabilityCategory.anchorId}`}
+                    href={capabilityCategory.route}
                     role="menuitem"
                     onClick={closeMenu}
                     className="mt-3 flex min-h-11 items-center font-semibold text-roasted-earth transition-colors duration-300 hover:text-solar-flare"
@@ -128,9 +128,9 @@ export function CapabilitiesMegaMenu() {
 
                   <ul className="flex flex-col">
                     {capabilityCategory.services.map((subService) => (
-                      <li key={subService.title}>
+                      <li key={subService.anchorId}>
                         <Link
-                          href={subService.href}
+                          href={`${capabilityCategory.route}#${subService.anchorId}`}
                           role="menuitem"
                           onClick={closeMenu}
                           className="flex min-h-11 items-center text-sm text-roasted-earth/70 transition-colors duration-300 hover:text-solar-flare"
@@ -142,6 +142,17 @@ export function CapabilitiesMegaMenu() {
                   </ul>
                 </div>
               ))}
+            </div>
+
+            <div className="mt-6 border-t border-roasted-earth/10 pt-4">
+              <Link
+                href={CAPABILITIES_ROUTE}
+                role="menuitem"
+                onClick={closeMenu}
+                className="flex min-h-11 items-center font-medium text-solar-flare transition-colors duration-300 hover:text-clear-sky"
+              >
+                View all capabilities
+              </Link>
             </div>
           </motion.div>
         ) : null}

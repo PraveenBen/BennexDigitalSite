@@ -1,6 +1,7 @@
 import { HeroOrb } from "@/components/home/HeroOrb";
 import { PrimaryButton } from "@/components/shared/PrimaryButton";
 import { SecondaryButton } from "@/components/shared/SecondaryButton";
+import { CAPABILITIES_ROUTE, CONTACT_ROUTE } from "@/lib/constants";
 
 export function HeroSection() {
   return (
@@ -29,8 +30,8 @@ export function HeroSection() {
         </p>
 
         <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-          <PrimaryButton href="#contact">Start a Conversation</PrimaryButton>
-          <SecondaryButton href="#capabilities">Explore Our Expertise</SecondaryButton>
+          <PrimaryButton href={CONTACT_ROUTE}>Start a Conversation</PrimaryButton>
+          <SecondaryButton href={CAPABILITIES_ROUTE}>Explore Our Expertise</SecondaryButton>
         </div>
       </div>
 

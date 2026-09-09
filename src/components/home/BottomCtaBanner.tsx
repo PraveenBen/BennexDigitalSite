@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import { CONTACT_ROUTE } from "@/lib/constants";
+
 export function BottomCtaBanner() {
   return (
     <section aria-labelledby="bottom-cta-heading" className="px-6 py-24 lg:px-8">
@@ -9,7 +11,7 @@ export function BottomCtaBanner() {
         </h2>
         <div className="mt-8 flex justify-center">
           <Link
-            href="#contact"
+            href={CONTACT_ROUTE}
             className="inline-flex min-h-11 items-center justify-center rounded-full bg-roasted-earth px-8 py-3 font-medium text-morning-sand transition-colors duration-300 hover:bg-clear-sky"
           >
             Start a Strategic Conversation

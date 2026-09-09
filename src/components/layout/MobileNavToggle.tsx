@@ -5,7 +5,7 @@ import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
-import { CAPABILITY_CATEGORIES } from "@/lib/constants";
+import { CAPABILITY_CATEGORIES, CONTACT_ROUTE } from "@/lib/constants";
 import type { NavLink } from "@/types";
 
 interface MobileNavToggleProps {
@@ -55,9 +55,9 @@ export function MobileNavToggle({ navLinks }: MobileNavToggleProps) {
               </summary>
               <ul className="flex flex-col gap-4 pb-3 pl-3">
                 {CAPABILITY_CATEGORIES.map((capabilityCategory) => (
-                  <li key={capabilityCategory.anchorId}>
+                  <li key={capabilityCategory.slug}>
                     <Link
-                      href={`#${capabilityCategory.anchorId}`}
+                      href={capabilityCategory.route}
                       onClick={closeMenu}
                       className="flex min-h-11 items-center font-medium text-roasted-earth"
                     >
@@ -65,9 +65,9 @@ export function MobileNavToggle({ navLinks }: MobileNavToggleProps) {
                     </Link>
                     <ul className="flex flex-col pl-3">
                       {capabilityCategory.services.map((subService) => (
-                        <li key={subService.title}>
+                        <li key={subService.anchorId}>
                           <Link
-                            href={subService.href}
+                            href={`${capabilityCategory.route}#${subService.anchorId}`}
                             onClick={closeMenu}
                             className="flex min-h-11 items-center text-sm text-roasted-earth/70"
                           >
@@ -84,25 +84,25 @@ export function MobileNavToggle({ navLinks }: MobileNavToggleProps) {
             <ul className="flex flex-col gap-1 py-2">
               {navLinks.map((navLink) => (
                 <li key={navLink.href}>
-                  <a
+                  <Link
                     href={navLink.href}
                     onClick={closeMenu}
                     className="block min-h-11 rounded-lg px-3 py-3 font-medium text-roasted-earth transition-colors duration-300 hover:bg-radiant-amber/10 hover:text-solar-flare"
                   >
                     {navLink.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
 
             <div className="py-4">
-              <a
-                href="#contact"
+              <Link
+                href={CONTACT_ROUTE}
                 onClick={closeMenu}
                 className="flex min-h-11 items-center justify-center rounded-full bg-solar-flare px-6 font-medium text-morning-sand"
               >
                 Start a Project
-              </a>
+              </Link>
             </div>
           </motion.nav>
         ) : null}

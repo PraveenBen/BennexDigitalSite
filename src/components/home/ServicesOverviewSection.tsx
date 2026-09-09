@@ -1,11 +1,12 @@
 import { CapabilityCard } from "@/components/home/CapabilityCard";
 import { FadeInSection } from "@/components/shared/FadeInSection";
 import { SectionHeading } from "@/components/shared/SectionHeading";
-import { CAPABILITY_CATEGORIES } from "@/lib/constants";
+import { SecondaryButton } from "@/components/shared/SecondaryButton";
+import { CAPABILITIES_ROUTE, CAPABILITY_CATEGORIES } from "@/lib/constants";
 
 export function ServicesOverviewSection() {
   return (
-    <section id="capabilities" aria-labelledby="capabilities-heading" className="bg-white/40 px-6 py-24 lg:px-8">
+    <section aria-labelledby="capabilities-heading" className="bg-white/40 px-6 py-24 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <SectionHeading
           headingId="capabilities-heading"
@@ -17,12 +18,16 @@ export function ServicesOverviewSection() {
         <div className="mt-16 grid gap-8 lg:grid-cols-2">
           {CAPABILITY_CATEGORIES.map((capabilityCategory, capabilityCategoryIndex) => (
             <FadeInSection
-              key={capabilityCategory.anchorId}
+              key={capabilityCategory.slug}
               delayInSeconds={capabilityCategoryIndex * 0.1}
             >
               <CapabilityCard capabilityCategory={capabilityCategory} />
             </FadeInSection>
           ))}
+        </div>
+
+        <div className="mt-12 flex justify-center">
+          <SecondaryButton href={CAPABILITIES_ROUTE}>View all capabilities</SecondaryButton>
         </div>
       </div>
     </section>

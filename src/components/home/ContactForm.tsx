@@ -1,36 +1,65 @@
 "use client";
 
-import { useActionState } from "react";
+import { useState, type FormEvent } from "react";
 
-import { submitContactForm } from "@/app/actions";
 import { SuccessCheckmark } from "@/components/shared/SuccessCheckmark";
-import { MAX_CONTACT_MESSAGE_LENGTH } from "@/lib/constants";
-import type { FormActionState } from "@/types";
-
-const INITIAL_FORM_ACTION_STATE: FormActionState = {
-  isSuccessful: false,
-  errorMessage: null,
-};
+import { BUSINESS_CONTACT_EMAIL, MAX_CONTACT_MESSAGE_LENGTH } from "@/lib/constants";
+import { isValidEmail } from "@/lib/validation";
 
 export function ContactForm() {
-  const [formActionState, formAction, isPending] = useActionState(
-    submitContactForm,
-    INITIAL_FORM_ACTION_STATE,
-  );
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [isSuccessful, setIsSuccessful] = useState(false);
 
-  if (formActionState.isSuccessful) {
+  function handleSubmit(event: FormEvent<HTMLFormElement>): void {
+    event.preventDefault();
+
+    const formData = new FormData(event.currentTarget);
+    const fullName = String(formData.get("fullName") ?? "").trim();
+    const userEmail = String(formData.get("userEmail") ?? "").trim();
+    const message = String(formData.get("message") ?? "").trim();
+
+    if (fullName.length === 0) {
+      setErrorMessage("Enter your name.");
+      return;
+    }
+
+    if (!isValidEmail(userEmail)) {
+      setErrorMessage("Enter a valid email address.");
+      return;
+    }
+
+    if (message.length === 0 || message.length > MAX_CONTACT_MESSAGE_LENGTH) {
+      setErrorMessage(`Message must be between 1 and ${MAX_CONTACT_MESSAGE_LENGTH} characters.`);
+      return;
+    }
+
+    setErrorMessage(null);
+
+    // This site is a static export with no backend, so submitting opens the visitor's own
+    // email client with the message pre-filled rather than transmitting it directly.
+    const mailtoSubject = encodeURIComponent(`New project inquiry from ${fullName}`);
+    const mailtoBody = encodeURIComponent(`${message}\n\nReply to: ${userEmail}`);
+    window.location.href = `mailto:${BUSINESS_CONTACT_EMAIL}?subject=${mailtoSubject}&body=${mailtoBody}`;
+
+    setIsSuccessful(true);
+  }
+
+  if (isSuccessful) {
     return (
       <div className="flex flex-col items-center gap-3 rounded-2xl border border-clear-sky/30 bg-white/60 p-10 text-center">
         <SuccessCheckmark />
         <p className="text-lg font-medium text-roasted-earth">
-          Message received. We&apos;ll be in touch shortly.
+          Your email app should now be open with your message ready to send.
         </p>
       </div>
     );
   }
 
   return (
-    <form action={formAction} className="flex flex-col gap-5 rounded-2xl border border-roasted-earth/10 bg-white/60 p-8">
+    <form
+      onSubmit={handleSubmit}
+      className="flex flex-col gap-5 rounded-2xl border border-roasted-earth/10 bg-white/60 p-8"
+    >
       <div className="flex flex-col gap-2">
         <label htmlFor="contact-full-name" className="font-medium text-roasted-earth">
           Name
@@ -75,15 +104,14 @@ export function ContactForm() {
 
       <button
         type="submit"
-        disabled={isPending}
-        className="min-h-11 self-start rounded-full bg-solar-flare px-8 py-2.5 font-medium text-morning-sand transition-colors duration-300 hover:bg-clear-sky disabled:cursor-not-allowed disabled:opacity-60"
+        className="min-h-11 self-start rounded-full bg-solar-flare px-8 py-2.5 font-medium text-morning-sand transition-colors duration-300 hover:bg-clear-sky"
       >
-        {isPending ? "Sending..." : "Send Message"}
+        Send Message
       </button>
 
-      {formActionState.errorMessage ? (
+      {errorMessage ? (
         <p role="alert" className="text-sm text-solar-flare">
-          {formActionState.errorMessage}
+          {errorMessage}
         </p>
       ) : null}
     </form>

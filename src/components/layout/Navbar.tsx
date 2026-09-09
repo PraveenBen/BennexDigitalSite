@@ -3,7 +3,7 @@ import Link from "next/link";
 import { CapabilitiesMegaMenu } from "@/components/layout/CapabilitiesMegaMenu";
 import { MobileNavToggle } from "@/components/layout/MobileNavToggle";
 import { PrimaryButton } from "@/components/shared/PrimaryButton";
-import { PRIMARY_NAV_LINKS, SITE_NAME } from "@/lib/constants";
+import { CONTACT_ROUTE, PRIMARY_NAV_LINKS, SITE_NAME } from "@/lib/constants";
 
 export function Navbar() {
   return (
@@ -21,19 +21,19 @@ export function Navbar() {
             </li>
             {PRIMARY_NAV_LINKS.map((navLink) => (
               <li key={navLink.href}>
-                <a
+                <Link
                   href={navLink.href}
                   className="flex min-h-11 items-center transition-colors duration-300 hover:text-solar-flare"
                 >
                   {navLink.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
         </nav>
 
         <div className="hidden md:block">
-          <PrimaryButton href="#contact">Start a Project</PrimaryButton>
+          <PrimaryButton href={CONTACT_ROUTE}>Start a Project</PrimaryButton>
         </div>
 
         <MobileNavToggle navLinks={PRIMARY_NAV_LINKS} />
