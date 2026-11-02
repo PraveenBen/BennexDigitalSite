@@ -6,6 +6,9 @@
   --color-solar-flare: #ea580c;
   --color-radiant-amber: #f59e0b;
   --color-clear-sky: #0ea5e9;
+  /* Card/panel background, layered over morning-sand at reduced opacity for the "glass" look.
+     Kept as its own token (rather than hardcoded white) so it can invert for dark mode. */
+  --color-surface: #ffffff;
 
   --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
 
@@ -21,9 +24,23 @@
   --text-lede--line-height: 1.6;
 }
 
+/* Dark palette ("Digital Dusk"). Applied via a `data-theme="dark"` attribute on <html>, set
+   by an inline script (theme-init) before hydration based on either a saved manual preference
+   or the current local time - see ThemeToggle.tsx. Every component references the same
+   `--color-*` custom properties, so no component markup needs a dark-mode variant. */
+:root[data-theme="dark"] {
+  --color-morning-sand: #150d07;
+  --color-roasted-earth: #f5e8d8;
+  --color-solar-flare: #ff7a33;
+  --color-radiant-amber: #fbbf24;
+  --color-clear-sky: #38bdf8;
+  --color-surface: #2a1c10;
+}
+
 body {
   background-color: var(--color-morning-sand);
   color: var(--color-roasted-earth);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 ::selection {

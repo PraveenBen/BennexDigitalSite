@@ -5,7 +5,7 @@ import { CLIENT_LOGOS } from "@/lib/constants";
 
 export function ClientMarquee() {
   return (
-    <section aria-label="Trusted by businesses across industries" className="border-y border-roasted-earth/10 bg-white/40 py-12">
+    <section aria-label="Trusted by businesses across industries" className="border-y border-roasted-earth/10 bg-surface/40 py-12">
       <p className="mx-auto max-w-7xl px-6 text-center text-sm font-medium text-roasted-earth/60 lg:px-8">
         Trusted by businesses across industries
       </p>

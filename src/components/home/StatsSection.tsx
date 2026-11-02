@@ -6,7 +6,7 @@ export function StatsSection() {
     <section id="proof" aria-label="Experience and proof" className="px-6 py-20 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <FadeInSection>
-          <dl className="grid grid-cols-2 gap-8 rounded-2xl border border-roasted-earth/10 bg-white/60 p-10 lg:grid-cols-4">
+          <dl className="grid grid-cols-2 gap-8 rounded-2xl border border-roasted-earth/10 bg-surface/60 p-10 lg:grid-cols-4">
             {STAT_ENTRIES.map((statEntry) => (
               <div key={statEntry.label} className="text-center">
                 <dt className="sr-only">{statEntry.label}</dt>

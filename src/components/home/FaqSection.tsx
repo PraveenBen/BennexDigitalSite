@@ -32,7 +32,7 @@ export function FaqSection() {
           {FAQ_ENTRIES.map((faqEntry) => (
             <details
               key={faqEntry.question}
-              className="group rounded-2xl border border-roasted-earth/10 bg-white/60 p-6 open:border-radiant-amber/40"
+              className="group rounded-2xl border border-roasted-earth/10 bg-surface/60 p-6 open:border-radiant-amber/40"
             >
               <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 font-semibold text-roasted-earth marker:content-none">
                 {faqEntry.question}

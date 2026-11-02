@@ -5,6 +5,7 @@ import type { ReactNode } from "react";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { JsonLdScript } from "@/components/shared/JsonLdScript";
+import { ThemeInitScript } from "@/components/shared/ThemeInitScript";
 import {
   SITE_DESCRIPTION,
   SITE_META_TITLE,
@@ -74,8 +75,9 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en" className={`${outfit.variable} scroll-smooth`}>
+    <html lang="en" className={`${outfit.variable} scroll-smooth`} suppressHydrationWarning>
       <body className="flex min-h-screen flex-col bg-morning-sand font-sans text-roasted-earth antialiased selection:bg-radiant-amber selection:text-morning-sand">
+        <ThemeInitScript />
         <JsonLdScript schema={PROFESSIONAL_SERVICE_SCHEMA} />
         <Navbar />
         <main className="flex-1">{children}</main>

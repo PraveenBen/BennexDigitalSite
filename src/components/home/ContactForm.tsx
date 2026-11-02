@@ -46,7 +46,7 @@ export function ContactForm() {
 
   if (isSuccessful) {
     return (
-      <div className="flex flex-col items-center gap-3 rounded-2xl border border-clear-sky/30 bg-white/60 p-10 text-center">
+      <div className="flex flex-col items-center gap-3 rounded-2xl border border-clear-sky/30 bg-surface/60 p-10 text-center">
         <SuccessCheckmark />
         <p className="text-lg font-medium text-roasted-earth">
           Your email app should now be open with your message ready to send.
@@ -58,7 +58,7 @@ export function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col gap-5 rounded-2xl border border-roasted-earth/10 bg-white/60 p-8"
+      className="flex flex-col gap-5 rounded-2xl border border-roasted-earth/10 bg-surface/60 p-8"
     >
       <div className="flex flex-col gap-2">
         <label htmlFor="contact-full-name" className="font-medium text-roasted-earth">

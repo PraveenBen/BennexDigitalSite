@@ -12,7 +12,7 @@ export function InsightCard({ insightArticle }: InsightCardProps) {
   const { title, excerpt, href, imageSrc, imageAlt } = insightArticle;
 
   return (
-    <article className="overflow-hidden rounded-2xl border border-roasted-earth/10 bg-white/60">
+    <article className="overflow-hidden rounded-2xl border border-roasted-earth/10 bg-surface/60">
       {/* unoptimized: local placeholder SVG cover art needs no resizing or format conversion. */}
       <Image
         src={buildAssetPath(imageSrc)}

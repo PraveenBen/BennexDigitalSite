@@ -6,7 +6,7 @@ import { CAPABILITIES_ROUTE, CAPABILITY_CATEGORIES } from "@/lib/constants";
 
 export function ServicesOverviewSection() {
   return (
-    <section aria-labelledby="capabilities-heading" className="bg-white/40 px-6 py-24 lg:px-8">
+    <section aria-labelledby="capabilities-heading" className="bg-surface/40 px-6 py-24 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <SectionHeading
           headingId="capabilities-heading"

@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "d:\\Bennex Digital\\BennexDigitalSite\\logs\\.7fe0d4621a63cf7314ca71bcbc992b0eb1f17915-audit.json",
+    "files": [
+        {
+            "date": 1793641314780,
+            "name": "d:\\Bennex Digital\\BennexDigitalSite\\logs\\mcp-puppeteer-2026-11-02.log",
+            "hash": "1abee82dae6a9017b19b6851cc8172bd68057b065c7ca44d8d97ae6b92a79d84"
+        }
+    ],
+    "hashType": "sha256"
+}

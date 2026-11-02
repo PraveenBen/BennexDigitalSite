@@ -20,7 +20,7 @@ export function CapabilityPillarSections({ capabilityCategory }: CapabilityPilla
             <FadeInSection key={subService.anchorId} delayInSeconds={subServiceIndex * 0.05}>
               <article
                 id={subService.anchorId}
-                className="scroll-mt-24 rounded-2xl border border-roasted-earth/10 bg-white/60 p-8"
+                className="scroll-mt-24 rounded-2xl border border-roasted-earth/10 bg-surface/60 p-8"
               >
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-radiant-amber/10 text-solar-flare">
                   <Icon className="h-6 w-6" aria-hidden="true" />

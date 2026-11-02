@@ -3,6 +3,7 @@ import Link from "next/link";
 import { CapabilitiesMegaMenu } from "@/components/layout/CapabilitiesMegaMenu";
 import { MobileNavToggle } from "@/components/layout/MobileNavToggle";
 import { PrimaryButton } from "@/components/shared/PrimaryButton";
+import { ThemeToggle } from "@/components/shared/ThemeToggle";
 import { CONTACT_ROUTE, PRIMARY_NAV_LINKS, SITE_NAME } from "@/lib/constants";
 
 export function Navbar() {
@@ -32,11 +33,15 @@ export function Navbar() {
           </ul>
         </nav>
 
-        <div className="hidden md:block">
+        <div className="hidden items-center gap-4 md:flex">
+          <ThemeToggle />
           <PrimaryButton href={CONTACT_ROUTE}>Start a Project</PrimaryButton>
         </div>
 
-        <MobileNavToggle navLinks={PRIMARY_NAV_LINKS} />
+        <div className="flex items-center gap-2 md:hidden">
+          <ThemeToggle />
+          <MobileNavToggle navLinks={PRIMARY_NAV_LINKS} />
+        </div>
       </div>
     </header>
   );

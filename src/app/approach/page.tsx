@@ -24,7 +24,7 @@ export default function ApproachPage() {
         <div className="mx-auto flex max-w-4xl flex-col gap-8">
           {VALUE_PILLARS.map((valuePillar, valuePillarIndex) => (
             <FadeInSection key={valuePillar.title} delayInSeconds={valuePillarIndex * 0.05}>
-              <article className="rounded-2xl border border-roasted-earth/10 bg-white/60 p-8">
+              <article className="rounded-2xl border border-roasted-earth/10 bg-surface/60 p-8">
                 <span aria-hidden="true" className="text-sm font-semibold text-solar-flare">
                   {String(valuePillarIndex + 1).padStart(2, "0")}
                 </span>

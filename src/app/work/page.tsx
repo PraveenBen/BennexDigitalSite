@@ -23,7 +23,7 @@ export default function WorkPage() {
       <StatsSection />
 
       <section aria-label="Case studies" className="px-6 pb-24 lg:px-8">
-        <div className="mx-auto max-w-3xl rounded-2xl border border-roasted-earth/10 bg-white/60 p-10 text-center">
+        <div className="mx-auto max-w-3xl rounded-2xl border border-roasted-earth/10 bg-surface/60 p-10 text-center">
           <h2 className="text-xl font-semibold text-roasted-earth">
             Detailed case studies on request
           </h2>

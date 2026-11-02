@@ -11,7 +11,7 @@ export function CapabilityCard({ capabilityCategory }: CapabilityCardProps) {
   const { route, title, description, icon: Icon, services } = capabilityCategory;
 
   return (
-    <article className="group relative flex h-full flex-col gap-4 rounded-2xl border border-roasted-earth/10 bg-white/60 p-8 transition-shadow duration-300 hover:shadow-xl hover:shadow-radiant-amber/10">
+    <article className="group relative flex h-full flex-col gap-4 rounded-2xl border border-roasted-earth/10 bg-surface/60 p-8 transition-shadow duration-300 hover:shadow-xl hover:shadow-radiant-amber/10">
       <div
         aria-hidden="true"
         className="absolute inset-x-8 bottom-0 h-0.5 origin-left scale-x-0 bg-radiant-amber transition-transform duration-300 ease-out group-hover:scale-x-100"

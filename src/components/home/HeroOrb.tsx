@@ -8,7 +8,7 @@ export function HeroOrb() {
 
       <div
         aria-hidden="true"
-        className="group relative flex aspect-square w-full max-w-md items-center justify-center overflow-hidden rounded-2xl border border-white/50 bg-gradient-to-br from-white/40 to-white/10 shadow-2xl backdrop-blur-md"
+        className="group relative flex aspect-square w-full max-w-md items-center justify-center overflow-hidden rounded-2xl border border-surface/50 bg-gradient-to-br from-surface/40 to-surface/10 shadow-2xl backdrop-blur-md"
       >
         <div className="absolute inset-0 bg-gradient-to-t from-solar-flare/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 

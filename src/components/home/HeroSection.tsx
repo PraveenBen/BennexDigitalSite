@@ -12,16 +12,22 @@ export function HeroSection() {
       {/* Rendered without an entrance animation on purpose: this is the LCP-critical block, and
           an opacity-from-0 reveal here would delay when the browser paints it. */}
       <div className="lg:w-1/2">
-        <span className="inline-flex items-center gap-2 rounded-full border border-radiant-amber/30 bg-white/50 px-4 py-2 text-sm font-medium text-roasted-earth/80 shadow-sm">
+        <span className="inline-flex items-center gap-2 rounded-full border border-radiant-amber/30 bg-surface/50 px-4 py-2 text-sm font-medium text-roasted-earth/80 shadow-sm">
           <span aria-hidden="true" className="h-2 w-2 rounded-full bg-radiant-amber motion-safe:animate-pulse" />
           Strategy, technology and growth in one team
         </span>
 
+        {/* Each line is a fixed, solid-colored block rather than one gradient spanning the
+            wrapped text - bg-clip-text with a horizontal gradient stretches across the full
+            multi-line bounding box, so each wrapped line would otherwise show a different,
+            unpredictable slice of the gradient instead of a single consistent color. */}
         <h1 id="hero-heading" className="mt-6 text-hero text-roasted-earth">
-          We Turn Bold Ideas Into{" "}
-          <span className="bg-gradient-to-r from-solar-flare to-radiant-amber bg-clip-text text-transparent">
-            Digital Products That Create Impact.
+          <span className="block">Turn Bold Ideas</span>
+          <span className="block">
+            Into <span className="text-solar-flare">Digital</span>
           </span>
+          <span className="block text-solar-flare">Products That</span>
+          <span className="block text-radiant-amber">Create Impact.</span>
         </h1>
 
         <p className="mt-6 max-w-lg text-lede text-roasted-earth/80">

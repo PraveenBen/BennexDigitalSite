@@ -32,6 +32,12 @@ export const BUSINESS_CONTACT_EMAIL = "hello@bennexdigital.com";
 
 export const MAX_CONTACT_MESSAGE_LENGTH = 2000;
 
+export const THEME_STORAGE_KEY = "bennex-theme-preference";
+// Local hours treated as daytime (light theme) when no manual preference is saved; everything
+// outside this range (evening/night/early morning) defaults to the dark theme.
+export const DAY_START_HOUR = 6;
+export const DAY_END_HOUR = 18;
+
 export const CAPABILITIES_ROUTE = "/capabilities";
 export const CONTACT_ROUTE = "/contact";
 export const INSIGHTS_ROUTE = "/insights";
