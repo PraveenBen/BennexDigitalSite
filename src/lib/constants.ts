@@ -15,20 +15,14 @@ import type {
   ValuePillar,
 } from "@/types";
 
-// TODO: point SITE_URL at a custom domain (and update next.config.ts's basePath/assetPrefix
-// accordingly) if this site ever moves off github.io/BennexDigitalSite. Also replace
-// BUSINESS_CONTACT_EMAIL with a real, monitored inbox before launch.
 export const SITE_NAME = "Bennex Digital";
-// Origin only (no path) - used solely for Next's `metadataBase`, which Next combines with
-// paths that already have basePath baked in. Combining it with SITE_URL (which also carries
-// the "/BennexDigitalSite" path) would double that segment in resolved OG/Twitter image URLs.
-export const SITE_ORIGIN = "https://praveenben.github.io";
-export const SITE_URL = `${SITE_ORIGIN}/BennexDigitalSite`;
+export const SITE_ORIGIN = "https://bennexdigital.tech";
+export const SITE_URL = SITE_ORIGIN;
 export const SITE_TAGLINE = "We Turn Bold Ideas Into Digital Products That Create Impact.";
 export const SITE_META_TITLE = "Product Strategy, Technology & Growth Partner";
 export const SITE_DESCRIPTION =
   "Bennex Digital partners with ambitious founders to shape tech strategy, build scalable cloud architecture, and drive measurable growth.";
-export const BUSINESS_CONTACT_EMAIL = "hello@bennexdigital.com";
+export const BUSINESS_CONTACT_EMAIL = "hello@bennexdigital.tech";
 
 export const MAX_CONTACT_MESSAGE_LENGTH = 2000;
 
